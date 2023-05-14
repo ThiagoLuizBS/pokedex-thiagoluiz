@@ -12,7 +12,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Pokedex</title>
-        <meta name="description" content="Pokedex" />
+        <meta
+          name="description"
+          content="Projeto criado por Thiago Luiz para desafio técnico de seleção."
+        />
       </head>
       <body>
         <CacheProvider>

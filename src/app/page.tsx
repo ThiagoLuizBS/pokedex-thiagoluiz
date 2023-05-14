@@ -43,14 +43,19 @@ export default function Pokedex() {
     ? pokemonsList.filter(
         (item) =>
           favorites.some((favorite) => parseInt(favorite) === item.id) &&
-          item.types.some((type) => type.type.name.includes(typesFilter)) &&
+          item.types.some((type) =>
+            type.type.name.includes(typesFilter.toLowerCase())
+          ) &&
           item.name.includes(search.toLowerCase())
       )
     : pokemonsList.filter(
         (item) =>
-          item.types.some((type) => type.type.name.includes(typesFilter)) &&
-          item.name.includes(search.toLowerCase())
+          item.types.some((type) =>
+            type.type.name.includes(typesFilter.toLowerCase())
+          ) && item.name.includes(search.toLowerCase())
       );
+
+  typesOptions.sort();
 
   filteredPokemons.sort((a, b) => {
     if (orderFilter === "1")
@@ -62,7 +67,25 @@ export default function Pokedex() {
     else if (orderFilter === "3") return a.name.localeCompare(b.name);
     else if (orderFilter === "4") return a.name.localeCompare(b.name) * -1;
     else if (orderFilter === "5")
-      return a.types[0].type.name.localeCompare(b.types[0].type.name);
+      if (
+        a.types.length > 1 &&
+        b.types.length < 2 &&
+        a.types[0].type.name === b.types[0].type.name
+      )
+        return 1;
+      else if (
+        a.types.length < 2 &&
+        b.types.length > 1 &&
+        a.types[0].type.name === b.types[0].type.name
+      )
+        return -1;
+      else if (
+        a.types.length > 1 &&
+        b.types.length > 1 &&
+        a.types[0].type.name === b.types[0].type.name
+      )
+        return a.types[1].type.name.localeCompare(b.types[1].type.name);
+      else return a.types[0].type.name.localeCompare(b.types[0].type.name);
     else if (orderFilter === "6")
       return a.types[0].type.name.localeCompare(b.types[0].type.name) * -1;
     return 0;
@@ -87,9 +110,9 @@ export default function Pokedex() {
                 typesOptionsArray.push(type.type.name);
             });
             setPokemonsList((prev) => [...prev, item.data]);
-            setTypesOptions(typesOptionsArray);
           });
         });
+        setTypesOptions(typesOptionsArray);
         setLoading(false);
       });
   };
@@ -138,7 +161,7 @@ export default function Pokedex() {
         className="flex flex-row text-center items-center justify-center space-x-4"
       >
         <Box className="flex flex-row text-center items-center justify-center">
-          <img src="/pokedex.png" alt="Pokedex" width={100} />
+          <img src="/images/pokedex.png" alt="Pokedex" width={100} />
           <Text className="text-center font-bold text-4xl">Pokedex</Text>
         </Box>
         <Text className="grow"></Text>
@@ -166,8 +189,11 @@ export default function Pokedex() {
         >
           {typesOptions.map((type) => {
             return (
-              <option value={type} key={type}>
-                {type}
+              <option
+                value={type}
+                key={type[0].toUpperCase() + type.substring(1)}
+              >
+                {type[0].toUpperCase() + type.substring(1)}
               </option>
             );
           })}

@@ -2,181 +2,181 @@ export function PokemonTypes({ type }: { type: string }) {
   if (type === "grass")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/7/7b/GrassIC_SV.png"
+        src="/images/types/grass.png"
         width="120px"
         className="m-1"
-        alt="grass"
-        title="grass"
+        alt="Grass"
+        title="Grass"
       />
     );
   else if (type === "normal")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/0/08/NormalIC_SV.png"
+        src="/images/types/normal.png"
         width="120px"
         className="m-1"
-        alt="normal"
-        title="normal"
+        alt="Normal"
+        title="Normal"
       />
     );
   else if (type === "fighting")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/0/0f/FightingIC_SV.png"
+        src="/images/types/fighting.png"
         width="120px"
         className="m-1"
-        alt="fighting"
-        title="fighting"
+        alt="Fighting"
+        title="Fighting"
       />
     );
   else if (type === "flying")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/d/d7/FlyingIC_SV.png"
+        src="/images/types/flying.png"
         width="120px"
         className="m-1"
-        alt="flying"
-        title="flying"
+        alt="Flying"
+        title="Flying"
       />
     );
   else if (type === "poison")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/9/9d/PoisonIC_SV.png"
+        src="/images/types/poison.png"
         width="120px"
         className="m-1"
-        alt="poison"
-        title="poison"
+        alt="Poison"
+        title="Poison"
       />
     );
   else if (type === "ground")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/f/f8/GroundIC_SV.png"
+        src="/images/types/ground.png"
         width="120px"
         className="m-1"
-        alt="ground"
-        title="ground"
+        alt="Ground"
+        title="Ground"
       />
     );
   else if (type === "rock")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/3/32/RockIC_SV.png"
+        src="/images/types/rock.png"
         width="120px"
         className="m-1"
-        alt="rock"
-        title="rock"
+        alt="Rock"
+        title="Rock"
       />
     );
   else if (type === "bug")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/d/d1/BugIC_SV.png"
+        src="/images/types/bug.png"
         width="120px"
         className="m-1"
-        alt="bug"
-        title="bug"
+        alt="Bug"
+        title="Bug"
       />
     );
   else if (type === "ghost")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/2/2c/GhostIC_SV.png"
+        src="/images/types/ghost.png"
         width="120px"
         className="m-1"
-        alt="ghost"
-        title="ghost"
+        alt="Ghost"
+        title="Ghost"
       />
     );
   else if (type === "steel")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/b/b8/SteelIC_SV.png"
+        src="/images/types/steel.png"
         width="120px"
         className="m-1"
-        alt="steel"
-        title="steel"
+        alt="Steel"
+        title="Steel"
       />
     );
   else if (type === "fire")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/a/a2/FireIC_SV.png"
+        src="/images/types/fire.png"
         width="120px"
         className="m-1"
-        alt="fire"
-        title="fire"
+        alt="Fire"
+        title="Fire"
       />
     );
   else if (type === "water")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/d/de/WaterIC_SV.png"
+        src="/images/types/water.png"
         width="120px"
         className="m-1"
-        alt="water"
-        title="water"
+        alt="Water"
+        title="Water"
       />
     );
   else if (type === "electric")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/7/77/ElectricIC_SV.png"
+        src="/images/types/electric.png"
         width="120px"
         className="m-1"
-        alt="electric"
-        title="electric"
+        alt="Electric"
+        title="Electric"
       />
     );
   else if (type === "psychic")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/9/96/PsychicIC_SV.png"
+        src="/images/types/psychic.png"
         width="120px"
         className="m-1"
-        alt="psychic"
-        title="psychic"
+        alt="Psychic"
+        title="Psychic"
       />
     );
   else if (type === "ice")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/1/13/IceIC_SV.png"
+        src="/images/types/ice.png"
         width="120px"
         className="m-1"
-        alt="ice"
-        title="ice"
+        alt="Ice"
+        title="Ice"
       />
     );
   else if (type === "dragon")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/7/7f/DragonIC_SV.png"
+        src="/images/types/dragon.png"
         width="120px"
         className="m-1"
-        alt="dragon"
-        title="dragon"
+        alt="Dragon"
+        title="Dragon"
       />
     );
   else if (type === "dark")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/3/30/DarkIC_SV.png"
+        src="/images/types/dark.png"
         width="120px"
         className="m-1"
-        alt="dark"
-        title="dark"
+        alt="Dark"
+        title="Dark"
       />
     );
   else if (type === "fairy")
     return (
       <img
-        src="https://archives.bulbagarden.net/media/upload/c/c6/FairyIC_SV.png"
+        src="/images/types/fairy.png"
         width="120px"
         className="m-1"
-        alt="fairy"
-        title="fairy"
+        alt="Fairy"
+        title="Fairy"
       />
     );
   return <></>;
