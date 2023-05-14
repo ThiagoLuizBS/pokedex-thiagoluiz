@@ -2,10 +2,6 @@
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Head from "next/head";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -14,11 +10,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <title>Pokedex</title>
         <meta name="description" content="Pokedex" />
-      </Head>
-      <body className={inter.className}>
+      </head>
+      <body>
         <CacheProvider>
           <ChakraProvider>{children}</ChakraProvider>
         </CacheProvider>
