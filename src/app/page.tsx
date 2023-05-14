@@ -23,7 +23,7 @@ import {
 } from "@chakra-ui/react";
 import { PokemonDetails } from "@/components/PokemonDetails";
 import { PokemonModal } from "@/components/PokemonModal";
-import { StarIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
 
 export default function Pokedex() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -87,7 +87,25 @@ export default function Pokedex() {
         return a.types[1].type.name.localeCompare(b.types[1].type.name);
       else return a.types[0].type.name.localeCompare(b.types[0].type.name);
     else if (orderFilter === "6")
-      return a.types[0].type.name.localeCompare(b.types[0].type.name) * -1;
+      if (
+        a.types.length > 1 &&
+        b.types.length < 2 &&
+        a.types[0].type.name === b.types[0].type.name
+      )
+        return 1;
+      else if (
+        a.types.length < 2 &&
+        b.types.length > 1 &&
+        a.types[0].type.name === b.types[0].type.name
+      )
+        return -1;
+      else if (
+        a.types.length > 1 &&
+        b.types.length > 1 &&
+        a.types[0].type.name === b.types[0].type.name
+      )
+        return a.types[1].type.name.localeCompare(b.types[1].type.name) * -1;
+      else return a.types[0].type.name.localeCompare(b.types[0].type.name) * -1;
     return 0;
   });
 
@@ -154,90 +172,89 @@ export default function Pokedex() {
   };
 
   return (
-    <Container maxW="1536px" centerContent className="min-h-screen">
+    <Container className="min-h-screen min-w-full" maxW="1536px" centerContent>
       <Box
-        w="70%"
+        className="flex flex-col xl:flex-row text-center items-center justify-center w-full md:w-4/5 xl:w-2/3"
         margin={4}
-        className="flex flex-row text-center items-center justify-center space-x-4"
       >
-        <Box className="flex flex-row text-center items-center justify-center">
+        <Box className="flex flex-row text-center items-center justify-center mb-4 xl:m-0">
           <img src="/images/pokedex.png" alt="Pokedex" width={100} />
           <Text className="text-center font-bold text-4xl">Pokedex</Text>
         </Box>
-        <Text className="grow"></Text>
-        <Button
-          className="text-black font-bold border border-sky-600 cursor-pointer"
-          width="12%"
-          leftIcon={<StarIcon />}
-          isActive={favoriteButton}
-          _active={{
-            bg: "#64748b",
-            color: "white",
-            transform: "scale(0.98)",
-          }}
-          onClick={() => changeFavoritesButton()}
-        >
-          Favoritos
-        </Button>
-        <Select
-          className="text-black text-ellipsis font-bold border-sky-600 cursor-pointer hover:border-sky-600"
-          _hover={{ backgroundColor: "#e2e8f0" }}
-          placeholder="Tipos"
-          iconColor="black"
-          width="12%"
-          onChange={(e) => setTypesFilter(e.target.value)}
-        >
-          {typesOptions.map((type) => {
-            return (
-              <option
-                value={type}
-                key={type[0].toUpperCase() + type.substring(1)}
-              >
-                {type[0].toUpperCase() + type.substring(1)}
-              </option>
-            );
-          })}
-        </Select>
-        <Select
-          className="text-black text-ellipsis font-bold border-sky-600 cursor-pointer hover:border-sky-600"
-          _hover={{ backgroundColor: "#e2e8f0" }}
-          iconColor="black"
-          width="14%"
-          onChange={(e) => setOrderFilter(e.target.value)}
-        >
-          <option value="1">ID crescente</option>
-          <option value="2">ID decrescente</option>
-          <option value="3">Nome crescente</option>
-          <option value="4">Nome decrescente</option>
-          <option value="5">Tipo crescente</option>
-          <option value="6">Tipo decrescente</option>
-        </Select>
-        <Input
-          className="placeholder:text-sky-600 border-sky-600 hover:border-sky-600"
-          placeholder="Buscar..."
-          _hover={{ backgroundColor: "#e2e8f0" }}
-          width="14%"
-          colorScheme="blue"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <Box className="flex flex-col sm:flex-row text-center justify-center xl:justify-end items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 w-2/5 sm:w-full">
+          <Button
+            className="text-black font-bold border border-sky-600 cursor-pointer w-fit"
+            leftIcon={<StarIcon />}
+            isActive={favoriteButton}
+            _active={{
+              bg: "#64748b",
+              color: "white",
+              transform: "scale(0.98)",
+            }}
+            onClick={() => changeFavoritesButton()}
+          >
+            Favoritos
+          </Button>
+          <Select
+            className="text-black text-ellipsis font-bold border-sky-600 cursor-pointer hover:border-sky-600"
+            _hover={{ backgroundColor: "#e2e8f0" }}
+            placeholder="Tipos"
+            iconColor="black"
+            width="120px"
+            onChange={(e) => setTypesFilter(e.target.value)}
+          >
+            {typesOptions.map((type) => {
+              return (
+                <option
+                  value={type}
+                  key={type[0].toUpperCase() + type.substring(1)}
+                >
+                  {type[0].toUpperCase() + type.substring(1)}
+                </option>
+              );
+            })}
+          </Select>
+          <Select
+            className="text-black text-ellipsis font-bold border-sky-600 cursor-pointer hover:border-sky-600"
+            _hover={{ backgroundColor: "#e2e8f0" }}
+            iconColor="black"
+            width="160px"
+            onChange={(e) => setOrderFilter(e.target.value)}
+          >
+            <option value="1">ID crescente</option>
+            <option value="2">ID decrescente</option>
+            <option value="3">Nome crescente</option>
+            <option value="4">Nome decrescente</option>
+            <option value="5">Tipo crescente</option>
+            <option value="6">Tipo decrescente</option>
+          </Select>
+          <Input
+            className="placeholder:text-sky-600 border-sky-600 hover:border-sky-600"
+            placeholder="Buscar..."
+            _hover={{ backgroundColor: "#e2e8f0" }}
+            width="144px"
+            colorScheme="blue"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </Box>
       </Box>
       {loading ? null : (
-        <Box w="70%" margin={4}>
+        <Box className="w-full md:w-4/5 lg:w-2/3 xl:w-7/12" margin={4}>
           <Table maxWidth="100%" colorScheme="blue">
             <Thead>
               <Tr>
-                <Th className="text-center text-black font-bold text-2xl">
+                <Th className="text-center text-black font-bold text-lg md:text-2xl px-0">
                   ID
                 </Th>
-                <Th></Th>
-                <Th className="text-left text-black font-bold text-2xl px-0">
+                <Th className="px-0"></Th>
+                <Th className="text-left text-black font-bold text-lg md:text-2xl px-0">
                   Name
                 </Th>
-                <Th className="text-center text-black font-bold text-2xl">
+                <Th className="text-center text-black font-bold text-lg md:text-2xl px-0">
                   Types
                 </Th>
-                <Th></Th>
+                <Th className="px-0"></Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -257,17 +274,17 @@ export default function Pokedex() {
                 ))
               ) : favoriteButton || typesFilter !== "" || search !== "" ? (
                 <Tr className="h-24 text-center p-0 hover:bg-slate-500 hover:text-white">
-                  <Td className="text-center w-32 p-0"></Td>
-                  <Td className="text-center w-32 p-0"></Td>
-                  <Td className="text-left font-bold text-lg w-80 p-0">
+                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0"></Td>
+                  <Td className="text-center w-16 md:w-32 p-0"></Td>
+                  <Td className="text-left font-bold text-base w-16 md:w-fit p-0">
                     Nenhum pokemon foi encontrado!
                   </Td>
-                  <Td className="text-center p-0"></Td>
-                  <Td className="text-center w-32 p-0"></Td>
+                  <Td className="text-center w-16 xl:w-60 2xl:w-80 p-0"></Td>
+                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0"></Td>
                 </Tr>
               ) : (
                 <Tr className="h-24 text-center p-0 hover:bg-slate-500 hover:text-white">
-                  <Td className="text-center w-32 p-0">
+                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0">
                     <Center>
                       <SkeletonText
                         noOfLines={1}
@@ -276,19 +293,19 @@ export default function Pokedex() {
                       />
                     </Center>
                   </Td>
-                  <Td className="text-center w-32 p-0 items-center">
+                  <Td className="text-center w-16 md:w-32 p-0 items-center">
                     <Center>
                       <SkeletonCircle size="16" />
                     </Center>
                   </Td>
-                  <Td className="text-left w-80 p-0">
+                  <Td className="text-left w-16 md:w-fit p-0">
                     <SkeletonText
                       noOfLines={1}
                       skeletonHeight="6"
                       width="50%"
                     />
                   </Td>
-                  <Td className="text-center p-0">
+                  <Td className="text-center w-16 xl:w-60 2xl:w-80 p-0">
                     <Center>
                       <Skeleton
                         width="120px"
@@ -297,7 +314,7 @@ export default function Pokedex() {
                       />
                     </Center>
                   </Td>
-                  <Td className="text-center w-32 p-0"></Td>
+                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0"></Td>
                 </Tr>
               )}
             </Tbody>

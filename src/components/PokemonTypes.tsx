@@ -3,8 +3,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/grass.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Grass"
         title="Grass"
       />
@@ -13,8 +12,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/normal.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Normal"
         title="Normal"
       />
@@ -23,8 +21,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/fighting.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Fighting"
         title="Fighting"
       />
@@ -33,8 +30,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/flying.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Flying"
         title="Flying"
       />
@@ -43,8 +39,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/poison.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Poison"
         title="Poison"
       />
@@ -53,8 +48,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/ground.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Ground"
         title="Ground"
       />
@@ -63,8 +57,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/rock.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Rock"
         title="Rock"
       />
@@ -73,8 +66,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/bug.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Bug"
         title="Bug"
       />
@@ -83,8 +75,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/ghost.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Ghost"
         title="Ghost"
       />
@@ -93,8 +84,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/steel.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Steel"
         title="Steel"
       />
@@ -103,8 +93,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/fire.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Fire"
         title="Fire"
       />
@@ -113,8 +102,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/water.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Water"
         title="Water"
       />
@@ -123,8 +111,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/electric.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Electric"
         title="Electric"
       />
@@ -133,8 +120,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/psychic.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Psychic"
         title="Psychic"
       />
@@ -143,8 +129,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/ice.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Ice"
         title="Ice"
       />
@@ -153,8 +138,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/dragon.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Dragon"
         title="Dragon"
       />
@@ -163,8 +147,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/dark.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Dark"
         title="Dark"
       />
@@ -173,8 +156,7 @@ export function PokemonTypes({ type }: { type: string }) {
     return (
       <img
         src="/images/types/fairy.png"
-        width="120px"
-        className="m-1"
+        className="m-1 w-16 md:w-32 "
         alt="Fairy"
         title="Fairy"
       />

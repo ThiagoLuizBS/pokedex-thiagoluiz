@@ -59,15 +59,15 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
         <ModalBody className="text-black grid grid-rows-3 grid-flow-col gap-1">
           <Box className="flex flex-col items-center gap-1">
             <Text className="font-bold text-sky-500">Peso</Text>
-            <Text className="font-bold">{details?.weight / 10}kg</Text>
+            <Text className="font-bold">{details?.weight / 10} kg</Text>
           </Box>
           <Box className="flex flex-col items-center gap-1">
             <Text className="font-bold text-sky-500">Altura</Text>
-            <Text className="font-bold">{details?.height * 10}cm</Text>
+            <Text className="font-bold">{details?.height * 10} cm</Text>
           </Box>
           <Box className="flex flex-col items-center gap-1">
             <Text className="font-bold text-sky-500">Experiência</Text>
-            <Text className="font-bold">{details?.base_experience}XP</Text>
+            <Text className="font-bold">{details?.base_experience} XP</Text>
           </Box>
           <Box className="flex flex-col items-left gap-1">
             <Box className="flex flex-row justify-center items-center">
@@ -78,7 +78,7 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
               <Progress
                 className="w-36 rounded-lg"
                 colorScheme="cyan"
-                value={details?.stats[0].base_stat}
+                value={details?.stats[0].base_stat / 2}
               />
             </Box>
             <Box className="flex flex-row justify-center items-center">
@@ -89,7 +89,7 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
               <Progress
                 className="w-36 rounded-lg"
                 colorScheme="cyan"
-                value={details?.stats[1].base_stat}
+                value={details?.stats[1].base_stat / 2}
               />
             </Box>
           </Box>
@@ -102,7 +102,7 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
               <Progress
                 className="w-36 rounded-lg"
                 colorScheme="cyan"
-                value={details?.stats[2].base_stat}
+                value={details?.stats[2].base_stat / 2}
               />
             </Box>
             <Box className="flex flex-row justify-center items-center">
@@ -113,7 +113,7 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
               <Progress
                 className="w-36 rounded-lg"
                 colorScheme="cyan"
-                value={details?.stats[5].base_stat}
+                value={details?.stats[5].base_stat / 2}
               />
             </Box>
           </Box>
@@ -126,7 +126,7 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
               <Progress
                 className="w-36 rounded-lg"
                 colorScheme="cyan"
-                value={details?.stats[3].base_stat}
+                value={details?.stats[3].base_stat / 2}
               />
             </Box>
             <Box className="flex flex-row justify-center items-center">
@@ -137,7 +137,7 @@ export function PokemonModal({ onClose, isOpen, details }: ModalProps) {
               <Progress
                 className="w-36 rounded-lg"
                 colorScheme="cyan"
-                value={details?.stats[4].base_stat}
+                value={details?.stats[4].base_stat / 2}
               />
             </Box>
           </Box>
