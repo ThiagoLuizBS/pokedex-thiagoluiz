@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { Pokemon, Type } from "@/interfaces/Pokemon";
+import { Pokemon, Type } from "../interfaces/Pokemon";
 import { Box, Td } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { PokemonTypes } from "./PokemonTypes";

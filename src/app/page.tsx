@@ -1,29 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Pokemon, Type } from "@/interfaces/Pokemon";
+import { Pokemon, Type } from "../interfaces/Pokemon";
 import {
-  Table,
-  Thead,
-  Tr,
-  Th,
-  Tbody,
   Box,
   Container,
-  Skeleton,
   useDisclosure,
   Button,
   Input,
   Select,
-  Td,
-  SkeletonCircle,
-  SkeletonText,
-  Center,
   Text,
 } from "@chakra-ui/react";
-import { PokemonDetails } from "@/components/PokemonDetails";
-import { PokemonModal } from "@/components/PokemonModal";
-import { ChevronDownIcon, ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
+import { StarIcon } from "@chakra-ui/icons";
+import { PokemonModal } from "../components/PokemonModal";
+import { PokemonTable } from "../components/PokemonTable";
 
 export default function Pokedex() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -239,93 +229,25 @@ export default function Pokedex() {
           />
         </Box>
       </Box>
-      {loading ? null : (
-        <Box className="w-full md:w-4/5 lg:w-2/3 xl:w-7/12" margin={4}>
-          <Table maxWidth="100%" colorScheme="blue">
-            <Thead>
-              <Tr>
-                <Th className="text-center text-black font-bold text-lg md:text-2xl px-0">
-                  ID
-                </Th>
-                <Th className="px-0"></Th>
-                <Th className="text-left text-black font-bold text-lg md:text-2xl px-0">
-                  Name
-                </Th>
-                <Th className="text-center text-black font-bold text-lg md:text-2xl px-0">
-                  Types
-                </Th>
-                <Th className="px-0"></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {filteredPokemons.length > 0 ? (
-                filteredPokemons?.map((pokemon: Pokemon) => (
-                  <Tr
-                    key={pokemon.id}
-                    className="h-24 hover:bg-slate-500 hover:text-white cursor-pointer"
-                    onClick={() => openModal(pokemon.id)}
-                  >
-                    <PokemonDetails
-                      details={pokemon}
-                      favorites={favorites}
-                      setFavorites={setFavorites}
-                    />
-                  </Tr>
-                ))
-              ) : favoriteButton || typesFilter !== "" || search !== "" ? (
-                <Tr className="h-24 text-center p-0 hover:bg-slate-500 hover:text-white">
-                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0"></Td>
-                  <Td className="text-center w-16 md:w-32 p-0"></Td>
-                  <Td className="text-left font-bold text-base w-16 md:w-fit p-0">
-                    Nenhum pokemon foi encontrado!
-                  </Td>
-                  <Td className="text-center w-16 xl:w-60 2xl:w-80 p-0"></Td>
-                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0"></Td>
-                </Tr>
-              ) : (
-                <Tr className="h-24 text-center p-0 hover:bg-slate-500 hover:text-white">
-                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0">
-                    <Center>
-                      <SkeletonText
-                        noOfLines={1}
-                        skeletonHeight="6"
-                        width="50%"
-                      />
-                    </Center>
-                  </Td>
-                  <Td className="text-center w-16 md:w-32 p-0 items-center">
-                    <Center>
-                      <SkeletonCircle size="16" />
-                    </Center>
-                  </Td>
-                  <Td className="text-left w-16 md:w-fit p-0">
-                    <SkeletonText
-                      noOfLines={1}
-                      skeletonHeight="6"
-                      width="50%"
-                    />
-                  </Td>
-                  <Td className="text-center w-16 xl:w-60 2xl:w-80 p-0">
-                    <Center>
-                      <Skeleton
-                        width="120px"
-                        height="40px"
-                        className="rounded-2xl"
-                      />
-                    </Center>
-                  </Td>
-                  <Td className="text-center w-6 md:w-32 xl:w-40 p-0"></Td>
-                </Tr>
-              )}
-            </Tbody>
-          </Table>
+      {!loading ? (
+        <>
+          <PokemonTable
+            data-testid="table-component-test"
+            filteredPokemons={filteredPokemons}
+            openModal={openModal}
+            favorites={favorites}
+            setFavorites={setFavorites}
+            favoriteButton={favoriteButton}
+            typesFilter={typesFilter}
+            search={search}
+          />
           <PokemonModal
             isOpen={isOpen}
             onClose={onClose}
             details={pokemonsList[pokemonIdSelected]}
           />
-        </Box>
-      )}
+        </>
+      ) : null}
     </Container>
   );
 }

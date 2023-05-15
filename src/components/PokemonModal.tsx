@@ -1,4 +1,4 @@
-import { Pokemon, Type } from "@/interfaces/Pokemon";
+import { Pokemon, Type } from "../interfaces/Pokemon";
 import {
   Button,
   Modal,

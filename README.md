@@ -10,7 +10,13 @@ Projeto realizado por Thiago Luiz - [Linkedin](https://www.linkedin.com/in/thiag
 - ReactJS
 - Tailwind CSS
 - Chakra UI
-- Testes
+
+## Funcionalidades
+
+- Listagem dos primeiros 151 pokemons, com suas informações básicas.
+- Filtro de busca por nome do pokemon, filtro do tipo de pokemon e filtro de ordenação com diferentes opções.
+- Favoritar pokemon e filtrar por pokemons favoritados.
+- Ao selecionar um pokemon da lista, é possível ver seus detalhes.
 
 ## [Link do projeto na Vercel](https://pokedex-thiagoluiz.vercel.app/)
 
@@ -18,10 +24,10 @@ Projeto realizado por Thiago Luiz - [Linkedin](https://www.linkedin.com/in/thiag
 
 #### É necessário ter o **Node (npm)** e o **yarn** instalados e atualizados no computador.
 
-- Após clonar o repositório e abrí-lo em uma IDE, abra o terminal na raiz do projeto e execute o comando **yarn install** para instalar todas as dependências e logo após execute o comando **yarn run dev** para rodar o projeto.
+- Após clonar o repositório e abrí-lo em uma IDE, abra o terminal e execute o comando **yarn install** para instalar todas as dependências e logo após execute o comando **yarn run dev** para rodar o projeto.
 
 - Abra [http://localhost:3000](http://localhost:3000) no seu browser para ver o projeto rodando.
 
 ## **Execução dos testes**
 
-- Teste
+- Foi utilizada o Jest como biblioteca de testes. Os testes estão no diretório **src/app/page.spec/tsx**, para executá-los, basta abrir o terminal e executar o comando **yarn test**.
