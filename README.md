@@ -30,4 +30,4 @@ Projeto realizado por Thiago Luiz - [Linkedin](https://www.linkedin.com/in/thiag
 
 ## **Execução dos testes**
 
-- Foi utilizada o Jest como biblioteca de testes. Os testes estão no diretório **src/app/page.spec/tsx**, para executá-los, basta abrir o terminal e executar o comando **yarn test**.
+- Foi utilizado o **Jest** como biblioteca de testes. Os testes estão no diretório **src/app/page.spec.tsx**, para executá-los, basta abrir o terminal e executar o comando **yarn test**.
